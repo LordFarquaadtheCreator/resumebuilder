@@ -1,5 +1,10 @@
 // some package description
-package JobScrapper
+// package JobScrapper
+package main
+
+/*
+	read go documentation on how to create packages
+*/
 
 import (
 	"errors"
@@ -7,6 +12,7 @@ import (
 	"io"
 	"net/http" // https://pkg.go.dev/net/http
 	"os"
+	"strings"
 )
 
 // fetches the content of a url and returns the body as a string
@@ -25,6 +31,11 @@ func GetUrlText(url string) (string, error) {
 	return string(body), nil
 }
 
+// checks the frequency of the word in body
+func countFreq(body string, word string) int {
+	return strings.Count(strings.ToLower(body), strings.ToLower((word)))
+}
+
 func main() {
 	url := "https://example.com/"
 	resp, err := GetUrlText(url)
@@ -32,5 +43,6 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	fmt.Println(resp)
+
+	fmt.Println(countFreq(resp, KeyWords[0]))
 }
