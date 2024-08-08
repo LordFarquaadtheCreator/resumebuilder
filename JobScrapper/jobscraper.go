@@ -12,13 +12,13 @@ import (
 func GetUrlText(url string) (string, error) {
 	resp, err := http.Get(url)
 	if err != nil {
-		return "", errors.New("Failed to fetch url")
+		return "", errors.New("failed to fetch url")
 	}
 	
 	defer resp.Body.Close()
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return "", errors.New("Failed to read body of fetched url")
+		return "", errors.New("failed to read body of fetched url")
 	}
 
 	return string(body), nil
