@@ -1,10 +1,5 @@
 // some package description
-// package JobScrapper
 package JobScrapper
-
-/*
-	read go documentation on how to create packages
-*/
 
 import (
 	"errors"
