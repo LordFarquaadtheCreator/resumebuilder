@@ -1,6 +1,6 @@
 // some package description
 // package JobScrapper
-package main
+package JobScrapper
 
 /*
 	read go documentation on how to create packages
