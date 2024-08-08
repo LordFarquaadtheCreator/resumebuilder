@@ -27,7 +27,7 @@ func GetUrlText(url string) (string, error) {
 }
 
 // checks the frequency of the word in body
-func countFreq(body string, word string) int {
+func CountFreq(body string, word string) int {
 	return strings.Count(strings.ToLower(body), strings.ToLower((word)))
 }
 
