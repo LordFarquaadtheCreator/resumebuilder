@@ -3,10 +3,8 @@ package JobScrapper
 
 import (
 	"errors"
-	"fmt"
 	"io"
 	"net/http" // https://pkg.go.dev/net/http
-	"os"
 	"strings"
 )
 
@@ -29,15 +27,4 @@ func GetUrlText(url string) (string, error) {
 // checks the frequency of the word in body
 func CountFreq(body string, word string) int {
 	return strings.Count(strings.ToLower(body), strings.ToLower((word)))
-}
-
-func main() {
-	url := "https://example.com/"
-	resp, err := GetUrlText(url)
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-
-	fmt.Println(countFreq(resp, KeyWords[0]))
 }
